@@ -1,0 +1,54 @@
+<html >
+<div *ngIf='admin == "1"'>
+
+    <div id="contents">
+      <h1 id="u">الحسابات</h1>
+      <a  id="back" routerLink="/home">back </a>
+      <br/>
+      <table>
+ 
+        <tr>
+          <th>User Email     <input type="text" [(ngModel)]="queryString" id="search" placeholder="Search by email or name" tabindex="-1"></th>
+          <th>user name</th>
+          <th>user status</th>
+          <th>change to</th>
+          
+ 
+      
+
+        
+
+        <tr  *ngFor='let item of labels | FilterPipe: queryString'>
+          <td>{{item.email}}</td>
+          <td>{{item.name}}</td>
+              <td *ngIf='item.toggle == 0'>standard </td>
+              <td *ngIf='item.toggle == 1'>admin </td>
+                
+            <td><a id="bn2" *ngIf='item.toggle == 0' (click)="toggleToAdmin(item.$key)">make it Admin</a>
+<a  *ngIf='item.toggle == 1' id="bn" (click)='toggleToStandard(item.$key)'>make it Standard</a></td>
+          
+
+        </tr>
+      </table>
+
+            </div>
+    </div>
+
+
+
+<div *ngIf='admin == "0"'>
+
+    <h1>you have no permission to access.!!</h1>
+
+
+
+</div>
+
+
+
+
+
+
+
+    </html>
+    

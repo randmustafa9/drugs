@@ -1,0 +1,44 @@
+<html >
+    <div *ngIf='admin == "1"'>
+    
+        <div id="contents">
+          <h1 id="u">  تعليقات قسم انواع المخدرات</h1>
+          <br/><br/>
+          <a  id="back" routerLink="/home">back </a>
+          <table>
+     
+            <tr>
+              <th>User Name</th>
+              <th>user Comment</th>
+              <th>Comment status</th>
+              <th>change </th>
+            </tr>
+    
+            <tr  *ngFor='let item of labels'>
+              <td>{{item.name}}</td>
+              <td>{{item.desc}}</td>
+              <td *ngIf='item.accept == 0'>refused </td>
+              <td *ngIf='item.accept == 1'>accepted </td>
+                    
+                <td><a id="bn" *ngIf='item.accept == 0'  (click)="accept(item.$key)">make it accepted</a>
+    <a  *ngIf='item.accept == 1' id="bn2" (click)='refuse(item.$key)'>make it refused</a></td>
+              
+    
+            </tr>
+          </table>
+    
+                </div>
+        </div>
+    
+     
+    
+    <div *ngIf='admin == "0"'>
+    
+        <h1>you have no permission to access.!!</h1>
+    
+    </div>
+    
+        </html>
+        
+    
+    

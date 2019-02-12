@@ -1,0 +1,99 @@
+
+
+<body>
+<br/>
+
+
+  <div id="contents">
+  <h1 align="center" id='db'> Dashboard  </h1>
+
+<br/><br/>
+<a id="bnl" *ngIf='!isLoggedIn'  uk-toggle="target: #modal-example">Login</a>
+           
+
+    <div id="modal-example" uk-modal>
+    
+        <div class="uk-modal-dialog uk-modal-body">
+    
+    
+    
+            <fieldset class="uk-fieldset">
+    
+                <div class="uk-margin">
+                    <input class="uk-input" type="email" placeholder="البريد الالكتروني" name='email' [(ngModel)]='email'>
+                </div>
+          
+                <div class="uk-margin">
+                    <input class="uk-input" type="password" placeholder="كلمه السر" name='password' [(ngModel)]='password'>
+                </div>
+          
+                <div class="uk-margin">
+                    <a id="bnf" *ngIf='!isLoggedIn' (click)="myLogin()">Login</a>
+                    <h4 id='rMsg'>{{errorLoginMsg}}</h4>
+                </div>
+          
+          
+            </fieldset>
+          </div>   
+          </div>
+<div *ngIf='isLoggedIn'>
+<div *ngIf='admin == "1"'>
+<a id="bn"  *ngIf='isLoggedIn' (click)='logout()'>Logout</a>
+
+            <a  id="b1" routerLink="/users"> 
+              الحسابات 
+            </a> 
+       
+              <a  id="b2" routerLink="/comments"> 
+                تعليقات قسم تعريف المخدرات
+              </a>
+              <a  id="b3" routerLink="/comments2"> 
+                تعليقات قسم انواع المخدرات
+              </a>
+              <a  id="b4" routerLink="/comments3"> 
+                تعليقات قسم طرق تعاطي المخدرات
+              </a>
+              <a  id="b5" routerLink="/comments4">
+                تعليقات قسم انواع المخدرات حسب مصدرها
+              </a>
+          
+              <a  id="b6" routerLink="/comments5">
+                تعليقات قسم المواد المثبطه
+              </a>
+              <a  id="b7" routerLink="/comments6">
+                تعليقات قسم اضرار المخدرات 
+              </a>
+              <a  id="b8" routerLink="/comments7"> 
+                 تعليقات قسم اسباب الادمان 
+              </a>
+              <a  id="b9" routerLink="/comments8"> 
+                 تعليقات قسم عوامل انتشار المخدرات 
+              </a>
+              <a  id="b10" routerLink="/comments9"> 
+                  تعليقات قسم الوقاية من المخدرات
+              </a>
+              <a  id="b11" routerLink="/comments10"> 
+                تعليقات قسم علاج الادمان  
+             </a>
+
+
+      
+
+ 
+
+
+    </div></div>
+    <div *ngIf='isLoggedIn'>
+        <div *ngIf='admin == "0"'>
+    
+           <h3>you have to be admin to access this page.!!</h3>
+           <a id="bn"  *ngIf='isLoggedIn' (click)='logout()'>Logout</a>
+        </div></div>
+  </div>
+          
+    
+    
+
+    
+
+
