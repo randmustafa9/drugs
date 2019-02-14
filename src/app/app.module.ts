@@ -21,6 +21,9 @@ import { Comments8Component } from './comments8/comments8.component';
 import { Comments9Component } from './comments9/comments9.component';
 import { Comments10Component } from './comments10/comments10.component';
 
+
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
+
 import { SomePipe } from './users/pipe.component';
 
 const routes:Routes = [
@@ -63,10 +66,12 @@ const routes:Routes = [
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { useHash: true }),
     FormsModule,
   ],
-  providers: [{provide: APP_BASE_HREF, useValue : '/' }],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
+  
+
 })
 export class AppModule { }
